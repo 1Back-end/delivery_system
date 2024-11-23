@@ -1,0 +1,111 @@
+[
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d6",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d1",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "departure_date": "2024-11-25",
+      "arrival_date": "2024-11-26",
+      "status": "en cours",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d7",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d6",
+      "departure_date": "2024-11-24",
+      "arrival_date": "2024-11-25",
+      "status": "livré",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d8",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "departure_date": "2024-11-22",
+      "arrival_date": "2024-11-23",
+      "status": "annulé",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d9",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d1",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "departure_date": "2024-11-30",
+      "arrival_date": "2024-12-01",
+      "status": "en cours",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325da",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d7",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d8",
+      "departure_date": "2024-11-28",
+      "arrival_date": "2024-11-29",
+      "status": "livré",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325db",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d9",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5",
+      "departure_date": "2024-11-26",
+      "arrival_date": "2024-11-27",
+      "status": "en cours",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325dc",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d8",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d3",
+      "departure_date": "2024-11-23",
+      "arrival_date": "2024-11-24",
+      "status": "livré",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325dd",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d4",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d6",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d9",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d7",
+      "departure_date": "2024-11-21",
+      "arrival_date": "2024-11-22",
+      "status": "annulé",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    },
+    {
+      "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325de",
+      "package_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5",
+      "delivery_vehicle_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d2",
+      "departure_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d6",
+      "destination_city_uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d8",
+      "departure_date": "2024-11-30",
+      "arrival_date": "2024-12-01",
+      "status": "en cours",
+      "created_at": "2024-11-23T16:43:13",
+      "updated_at": "2024-11-23T16:43:13"
+    }
+  ]
+  

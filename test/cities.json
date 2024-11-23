@@ -1,0 +1,13 @@
+[
+    { "uuid": "1", "name": "Yaoundé", "region_uuid": "0adec051-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "2", "name": "Douala", "region_uuid": "0adec0ec-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "3", "name": "Bafoussam", "region_uuid": "0adec14b-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "4", "name": "Garoua", "region_uuid": "0adec10d-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "5", "name": "Bamenda", "region_uuid": "0adec12c-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "6", "name": "Maroua", "region_uuid": "0adec19c-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "7", "name": "Ebolowa", "region_uuid": "0adec165-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "8", "name": "Kribi", "region_uuid": "0adec0ec-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "9", "name": "Nkongsamba", "region_uuid": "0adec14b-a9ba-11ef-8ebb-24418c1325d5" },
+    { "uuid": "10", "name": "Bertoua", "region_uuid": "0adec0c7-a9ba-11ef-8ebb-24418c1325d5" }
+  ]
+  

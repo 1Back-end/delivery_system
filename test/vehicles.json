@@ -1,0 +1,111 @@
+[
+    {
+      "uuid": "f1dbacff-12d2-4f26-8d0e-dc08b423f1f7",
+      "vehicle_number": "VC-1234",
+      "vehicle_type": "camion",
+      "capacity": 5000.00,
+      "driver_name": "Jean Dupont",
+      "driver_phone_number": "690123456",
+      "current_location": "Yaoundé",
+      "status": "disponible",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "d2e876f3-cd80-4b8b-a126-67df93e80f65",
+      "vehicle_number": "VC-5678",
+      "vehicle_type": "minibus",
+      "capacity": 18.00,
+      "driver_name": "Alice Mbella",
+      "driver_phone_number": "690987654",
+      "current_location": "Douala",
+      "status": "en réparation",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "4e44f8d3-82a9-4fd7-9d3f-80d5c13ff3be",
+      "vehicle_number": "VC-4321",
+      "vehicle_type": "voiture",
+      "capacity": 4.00,
+      "driver_name": "Paul Moukouri",
+      "driver_phone_number": "695432109",
+      "current_location": "Bertoua",
+      "status": "en cours",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "ce9f7583-9c72-42b0-9756-df8f1d5639e2",
+      "vehicle_number": "VC-8765",
+      "vehicle_type": "camion",
+      "capacity": 10000.00,
+      "driver_name": "Louis Tamo",
+      "driver_phone_number": "690234567",
+      "current_location": "Yaoundé",
+      "status": "disponible",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "3f4a0bc1-b56a-4e1b-8208-f097d37f0c80",
+      "vehicle_number": "VC-7890",
+      "vehicle_type": "minibus",
+      "capacity": 15.00,
+      "driver_name": "Patricia Nkwelle",
+      "driver_phone_number": "691123456",
+      "current_location": "Douala",
+      "status": "en panne",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "cd568b3b-88cf-406f-9779-8fdd257402ea",
+      "vehicle_number": "VC-2468",
+      "vehicle_type": "voiture",
+      "capacity": 5.00,
+      "driver_name": "Thomas Essou",
+      "driver_phone_number": "692345678",
+      "current_location": "Garoua",
+      "status": "disponible",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "80d1c0fe-4d56-46e1-b91a-8c8b2f5a9b3d",
+      "vehicle_number": "VC-1357",
+      "vehicle_type": "camion",
+      "capacity": 7500.00,
+      "driver_name": "Michel Akoa",
+      "driver_phone_number": "690876543",
+      "current_location": "Ebolowa",
+      "status": "en cours",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "0bc7b229-7f0e-4e0b-b330-b62f3bfe2a01",
+      "vehicle_number": "VC-1593",
+      "vehicle_type": "minibus",
+      "capacity": 12.00,
+      "driver_name": "Brenda Fodjoh",
+      "driver_phone_number": "691567890",
+      "current_location": "Yaoundé",
+      "status": "en réparation",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "d7a493cc-b572-4a7e-b63a-8a12a0b231d4",
+      "vehicle_number": "VC-1024",
+      "vehicle_type": "voiture",
+      "capacity": 4.00,
+      "driver_name": "Éric Nguemkam",
+      "driver_phone_number": "690345678",
+      "current_location": "Bafoussam",
+      "status": "disponible",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    }
+  ]
+  

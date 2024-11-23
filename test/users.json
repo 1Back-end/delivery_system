@@ -1,0 +1,123 @@
+[
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325d5",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "password": "hashed_password_1",
+      "photo": "john_doe.jpg",
+      "address": "123 Main St, Yaoundé",
+      "phone_number": "690123456",
+      "role": "admin",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325d6",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "jane.smith@example.com",
+      "password": "hashed_password_2",
+      "photo": "jane_smith.jpg",
+      "address": "456 Oak St, Douala",
+      "phone_number": "690654321",
+      "role": "utilisateur",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325d7",
+      "first_name": "Pierre",
+      "last_name": "Mbouda",
+      "email": "pierre.mbouda@example.com",
+      "password": "hashed_password_3",
+      "photo": "pierre_mbouda.jpg",
+      "address": "789 Elm St, Yaoundé",
+      "phone_number": "690987654",
+      "role": "gestionnaire",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325d8",
+      "first_name": "Marie",
+      "last_name": "Nkouka",
+      "email": "marie.nkouka@example.com",
+      "password": "hashed_password_4",
+      "photo": "marie_nkouka.jpg",
+      "address": "321 Birch St, Yaoundé",
+      "phone_number": "690111223",
+      "role": "admin",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325d9",
+      "first_name": "Luc",
+      "last_name": "Fouedjio",
+      "email": "luc.fouedjio@example.com",
+      "password": "hashed_password_5",
+      "photo": "luc_fouedjio.jpg",
+      "address": "123 Pine St, Douala",
+      "phone_number": "690444555",
+      "role": "utilisateur",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325da",
+      "first_name": "Elsa",
+      "last_name": "Tchoumbou",
+      "email": "elsa.tchoumbou@example.com",
+      "password": "hashed_password_6",
+      "photo": "elsa_tchoumbou.jpg",
+      "address": "987 Cedar St, Yaoundé",
+      "phone_number": "690223344",
+      "role": "gestionnaire",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325db",
+      "first_name": "Gervais",
+      "last_name": "Kouadio",
+      "email": "gervais.kouadio@example.com",
+      "password": "hashed_password_7",
+      "photo": "gervais_kouadio.jpg",
+      "address": "654 Maple St, Douala",
+      "phone_number": "690556677",
+      "role": "admin",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325dc",
+      "first_name": "Charlotte",
+      "last_name": "Biyong",
+      "email": "charlotte.biyong@example.com",
+      "password": "hashed_password_8",
+      "photo": "charlotte_biyong.jpg",
+      "address": "321 Fir St, Yaoundé",
+      "phone_number": "690888999",
+      "role": "utilisateur",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325dd",
+      "first_name": "Samuel",
+      "last_name": "Owona",
+      "email": "samuel.owona@example.com",
+      "password": "hashed_password_9",
+      "photo": "samuel_owona.jpg",
+      "address": "456 Oak St, Yaoundé",
+      "phone_number": "690123789",
+      "role": "gestionnaire",
+      "is_deleted": 0
+    },
+    {
+      "uuid": "d7d9f9f8-a9ba-11ef-8bbb-24418c1325de",
+      "first_name": "Monique",
+      "last_name": "Dikongue",
+      "email": "monique.dikongue@example.com",
+      "password": "hashed_password_10",
+      "photo": "monique_dikongue.jpg",
+      "address": "654 Pine St, Douala",
+      "phone_number": "690333444",
+      "role": "admin",
+      "is_deleted": 0
+    }
+  ]
+  

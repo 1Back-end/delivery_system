@@ -1,0 +1,13 @@
+[
+    { "uuid": "0adeb4e8-a9ba-11ef-8ebb-24418c1325d5", "name": "Adamaoua" },
+    { "uuid": "0adec051-a9ba-11ef-8ebb-24418c1325d5", "name": "Centre" },
+    { "uuid": "0adec0c7-a9ba-11ef-8ebb-24418c1325d5", "name": "Est" },
+    { "uuid": "0adec0ec-a9ba-11ef-8ebb-24418c1325d5", "name": "Littoral" },
+    { "uuid": "0adec10d-a9ba-11ef-8ebb-24418c1325d5", "name": "Nord" },
+    { "uuid": "0adec12c-a9ba-11ef-8ebb-24418c1325d5", "name": "Nord-Ouest" },
+    { "uuid": "0adec14b-a9ba-11ef-8ebb-24418c1325d5", "name": "Ouest" },
+    { "uuid": "0adec165-a9ba-11ef-8ebb-24418c1325d5", "name": "Sud" },
+    { "uuid": "0adec183-a9ba-11ef-8ebb-24418c1325d5", "name": "Sud-Ouest" },
+    { "uuid": "0adec19c-a9ba-11ef-8ebb-24418c1325d5", "name": "Extrême-Nord" }
+  ]
+  

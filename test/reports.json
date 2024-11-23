@@ -1,0 +1,84 @@
+[
+    {
+      "uuid": "b1f07f3e-60b6-49a7-8b4c-5ed1c0381d27",
+      "title": "Rapport de maintenance de véhicules",
+      "description": "Rapport détaillé sur l'état de maintenance des véhicules de l'entreprise, incluant les réparations et entretiens effectués.",
+      "report_date": "2024-11-23",
+      "generated_by": "9c72a97b-b6c3-4a7a-b53f-bff8efdc91a5",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "c9d8f7f6-5c75-4d72-bbfa-945a82045a92",
+      "title": "Rapport de performance mensuelle",
+      "description": "Rapport sur la performance des véhicules sur une période de 30 jours, incluant le taux d'utilisation et les problèmes rencontrés.",
+      "report_date": "2024-11-22",
+      "generated_by": "98d33f1a-b705-44f2-a589-5c4a8fe7ff9e",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "d453ca9d-85b6-4fda-93f1-ff23c923e6bc",
+      "title": "Rapport d'accident",
+      "description": "Rapport détaillant l'accident impliquant le véhicule VC-1234, avec analyse des causes et des recommandations.",
+      "report_date": "2024-11-21",
+      "generated_by": "0aeac8f7-c90d-41ea-b5a7-d5b1d92a7d99",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "e80b6e5c-3c39-4bfa-bba1-ccd7b1d00b1e",
+      "title": "Rapport de voyage",
+      "description": "Rapport sur le voyage effectué par le véhicule VC-4321, avec des détails sur le parcours, la durée, et les incidents rencontrés.",
+      "report_date": "2024-11-20",
+      "generated_by": "4f3a6e2d-6a7c-49b8-9b74-8c5dba8cc52c",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "fa95f7a2-b971-47f1-a0a6-ea820f560c91",
+      "title": "Rapport de vérification des documents",
+      "description": "Rapport concernant la vérification des documents administratifs des véhicules, tels que les permis et les certificats d'assurance.",
+      "report_date": "2024-11-19",
+      "generated_by": "4b97055e-2a0c-4579-bd85-c618ab0b378b",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "32dca7c9-d2d9-4f8f-9f57-f7edb8c730f1",
+      "title": "Rapport sur la consommation de carburant",
+      "description": "Analyse de la consommation de carburant des véhicules sur le mois, incluant les suggestions pour optimiser les coûts.",
+      "report_date": "2024-11-18",
+      "generated_by": "4c68fe70-58e2-42bc-89d9-bcfb19a3d9ea",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "b509ac70-7a9a-47fd-8041-66a5f8f46785",
+      "title": "Rapport de contrôle technique",
+      "description": "Rapport sur le contrôle technique effectué sur le véhicule VC-2468, incluant les résultats et les réparations nécessaires.",
+      "report_date": "2024-11-17",
+      "generated_by": "9d66358e-734a-4c6f-9050-d89d56d4f6f1",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "98a2dfb2-759f-42f1-8f0b-8e5128e8d0f5",
+      "title": "Rapport de sécurité",
+      "description": "Évaluation de la sécurité des véhicules, incluant les dispositifs de sécurité en place et les risques potentiels.",
+      "report_date": "2024-11-16",
+      "generated_by": "11ecdf15-5ff0-4090-b1a7-5499be5c8f8c",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    },
+    {
+      "uuid": "720b3838-3154-493e-8b94-9ad2bb2f8e9a",
+      "title": "Rapport de maintenance préventive",
+      "description": "Rapport sur la maintenance préventive effectuée sur les véhicules, incluant les tâches effectuées et celles à venir.",
+      "report_date": "2024-11-15",
+      "generated_by": "7b4cf7d7-8ab6-41fc-b8b2-13d8572b04b5",
+      "created_at": "2024-11-23 12:00:00",
+      "updated_at": "2024-11-23 12:00:00"
+    }
+  ]
+  
