@@ -1,0 +1,5 @@
+.logo_entrepot {
+    width: 200px; /* Taille de l'image */
+    height: 200px; /* Taille de l'image */
+    cursor: pointer; /* Curseur pointer pour indiquer que l'image est cliquable */
+}

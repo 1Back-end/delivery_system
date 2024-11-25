@@ -1,6 +1,7 @@
 <?php include_once("../menu/menu.php");?>
 <?php include_once("../database/database.php");?>
 <?php include_once("../fonction/fonction.php");?>
+<link rel="stylesheet" href="style.css">
 
 <?php
 
@@ -45,9 +46,9 @@ function format_date($date) {
                         <h6 class="text-uppercase font-14">Logo de l'entrepôt</h6>
                     </div>
                 <?php if(empty($result['logo'])): ?>
-                        <img src="https://i.pinimg.com/736x/25/30/71/253071375e1b3015762a9d9c94c01453.jpg" class="img-fluid rounded-circle" alt="Logo" width='300' height='300' style='object-fit: cover;'>
+                        <img src="https://i.pinimg.com/736x/25/30/71/253071375e1b3015762a9d9c94c01453.jpg" class="img-fluid logo_entrepot" >
                     <?php else: ?>
-                        <img src="../uploads/<?= htmlspecialchars($result['logo'])?>" alt="" class="img-fluid rounded-circle" alt="Logo" width='300' height='300' style='object-fit: cover;'>
+                        <img src="../uploads/<?= htmlspecialchars($result['logo'])?>" alt="" class="img-fluid logo_entrepot" alt="Logo">
                 <?php endif;?>
 
                 </div>
