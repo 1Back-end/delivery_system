@@ -22,77 +22,111 @@
 </head>
 <body>
 
-<div class="container mt-5 pb-5 p-0">
-    <div class="col-lg-6 col-sm-12 mb-3 mx-auto">
-        <div class="card-box p-4 shadow-none bg-white">
-            <div class="row">
-                <!-- Image section -->
-                <div class="col-lg-4 col-sm-12 d-flex align-items-center">
-                    <img src="https://i.pinimg.com/736x/ad/7a/da/ad7adab67d67f034ecbe1b7897fab4fe.jpg" 
-                         class="img-fluid d-none d-md-block w-100 rounded" 
-                         style="max-height: 200px; object-fit: cover;" 
-                         alt="Illustration">
-                </div>
 
-                <!-- Form section -->
-                <div class="col-lg-8 col-sm-12">
-                    <form action="" method="post">
-                        <div class="mb-3">
-                            <h5>Créer votre compte !</h5>
-                        </div>
+<div class="container mt-5 pb-5 p-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12 mb-3">
+            
+    <?php include_once("process_create_users.php"); ?>
+        <!-- Message d'erreur -->
+        <?php if (!empty($erreur)): ?>
+            <div class="alert alert-danger text-center">
+                <?= htmlspecialchars($erreur); ?>
+            </div>
+        <?php endif; ?>
 
-                        <!-- Name input -->
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control shadow-none" placeholder="John" required>
-                        </div>
+        <!-- Message de succès -->
+        <?php if (!empty($success)): ?>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($success); ?>
+            </div>
+        <?php endif; ?> 
+    </div>
 
-                        <!-- Last name input -->
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Prénom</label>
-                            <input type="text" class="form-control shadow-none" placeholder="Doe" required>
-                        </div>
+        <div class="col-md-8 col-sm-12">
+            <div class="card-box p-3 mt-3 shadow-none bg-white">
+                <div class="row align-items-center">
+                    <!-- Image Section -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 mb-lg-0">
+                        <img src="https://i.pinimg.com/736x/ad/7a/da/ad7adab67d67f034ecbe1b7897fab4fe.jpg" 
+                             class="img-fluid rounded w-100 d-none d-md-block" 
+                             style="max-height: 300px; object-fit: cover;" 
+                             alt="Illustration">
+                    </div>
 
-                        <!-- Email input -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Adresse e-mail</label>
-                            <input type="email" id="email" name="email" class="form-control shadow-none" placeholder="john.doe@example.com" required>
-                        </div>
+                    <!-- Form Section -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <form action="" method="post">
+                            <div class="mb-3">
+                                <h5>Créer votre compte !</h5>
+                            </div>
 
-                        <!-- Phone input -->
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Numéro de téléphone</label>
-                            <input type="tel" id="phone" name="phone" class="form-control shadow-none" placeholder="690126634" required />
-                        </div>
+                            <!-- First Name Input -->
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label">Nom</label>
+                                <input type="text" name="firstname" class="form-control form-control-lg shadow-none" placeholder="John">
+                                <?php if (isset($erreur_champ) && empty($_POST['firstname'])): ?>
+                                    <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
+                                <?php endif; ?>
+                            </div>
 
-                        <!-- Password input -->
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Mot de passe</label>
-                            <input type="password" id="password" name="password" class="form-control shadow-none" placeholder="************" required>
-                        </div>
+                            <!-- Last Name Input -->
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Prénom</label>
+                                <input type="text" name="lastname" class="form-control form-control-lg shadow-none" placeholder="Doe">
+                                <?php if (isset($erreur_champ) && empty($_POST['lastname'])): ?>
+                                    <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
+                                <?php endif; ?>
+                            </div>
 
-                        <!-- Google reCAPTCHA -->
-                        <div class="mb-3">
-                            <div class="g-recaptcha border-0" data-sitekey="6LdM-IcqAAAAALzPZEO6dVQ5mks4goeKedtARA6A"></div>
-                        </div>
+                            <!-- Email Input -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Adresse e-mail</label>
+                                <input type="email" name="email" class="form-control form-control-lg shadow-none" placeholder="john.doe@example.com">
+                                <?php if (isset($erreur_champ) && empty($_POST['email'])): ?>
+                                    <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
+                                <?php endif; ?>
+                            </div>
 
-                        <!-- Submit button -->
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-customize btn-responsive text-white w-100">
-                                Se connecter
-                            </button>
-                        </div>
+                            <!-- Phone Number Input -->
+                            <div class="mb-3">
+                                <label for="phone_number" class="form-label">Numéro de téléphone</label>
+                                <input type="tel" name="phone_number" class="form-control form-control-lg shadow-none" placeholder="690126634">
+                                <?php if (isset($erreur_champ) && empty($_POST['phone_number'])): ?>
+                                    <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
+                                <?php endif; ?>
+                            </div>
 
-                        <!-- Link to login page -->
-                        <div class="text-center">
-                            <span>Vous avez déjà un compte ? <a href="login.php" class="text-decoration-none text-primary">Se connecter</a></span>
-                        </div>
-                    </form>
+                            <!-- Password Input -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" id="password" name="password" class="form-control form-control-lg shadow-none" placeholder="************">
+                                <?php if (isset($erreur_champ) && empty($_POST['password'])): ?>
+                                    <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="mb-3">
+                                <button type="submit" name="submit" class="btn btn-customize btn-lg btn-responsive text-white w-100">
+                                    Créer votre compte
+                                </button>
+                            </div>
+
+                            <!-- Link to Login Page -->
+                            <div class="text-center">
+                                <span>Vous avez déjà un compte ? 
+                                    <a href="login.php" class="text-decoration-none text-primary">Se connecter</a>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Add this script to enable reCAPTCHA functionality -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>

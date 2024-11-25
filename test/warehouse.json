@@ -1,0 +1,102 @@
+[
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+        "num_warehouses": "W001",
+        "name": "Entrepôt Central",
+        "address": "123 Rue Principale, Yaoundé",
+        "phone": "+237 699 000 001",
+        "email": "central@warehouse.cm",
+        "logo": "central.png",
+        "created_at": "2024-11-01"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d480",
+        "num_warehouses": "W002",
+        "name": "Entrepôt Nord",
+        "address": "45 Avenue des Montagnes, Garoua",
+        "phone": "+237 699 000 002",
+        "email": "nord@warehouse.cm",
+        "logo": "nord.png",
+        "created_at": "2024-11-02"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d481",
+        "num_warehouses": "W003",
+        "name": "Entrepôt Sud",
+        "address": "67 Boulevard Océan, Kribi",
+        "phone": "+237 699 000 003",
+        "email": "sud@warehouse.cm",
+        "logo": "sud.png",
+        "created_at": "2024-11-03"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d482",
+        "num_warehouses": "W004",
+        "name": "Entrepôt Est",
+        "address": "10 Rue de l'Est, Bertoua",
+        "phone": "+237 699 000 004",
+        "email": "est@warehouse.cm",
+        "logo": "est.png",
+        "created_at": "2024-11-04"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d483",
+        "num_warehouses": "W005",
+        "name": "Entrepôt Ouest",
+        "address": "90 Place des Marchés, Bafoussam",
+        "phone": "+237 699 000 005",
+        "email": "ouest@warehouse.cm",
+        "logo": "ouest.png",
+        "created_at": "2024-11-05"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d484",
+        "num_warehouses": "W006",
+        "name": "Entrepôt Littoral",
+        "address": "15 Avenue Portuaire, Douala",
+        "phone": "+237 699 000 006",
+        "email": "littoral@warehouse.cm",
+        "logo": "littoral.png",
+        "created_at": "2024-11-06"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d485",
+        "num_warehouses": "W007",
+        "name": "Entrepôt Centre",
+        "address": "30 Rue de la Paix, Yaoundé",
+        "phone": "+237 699 000 007",
+        "email": "centre@warehouse.cm",
+        "logo": "centre.png",
+        "created_at": "2024-11-07"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d486",
+        "num_warehouses": "W008",
+        "name": "Entrepôt Adamaoua",
+        "address": "50 Avenue du Lac, Ngaoundéré",
+        "phone": "+237 699 000 008",
+        "email": "adamaoua@warehouse.cm",
+        "logo": "adamaoua.png",
+        "created_at": "2024-11-08"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d487",
+        "num_warehouses": "W009",
+        "name": "Entrepôt Sud-Ouest",
+        "address": "99 Rue Mont Cameroun, Buéa",
+        "phone": "+237 699 000 009",
+        "email": "sudouest@warehouse.cm",
+        "logo": "sudouest.png",
+        "created_at": "2024-11-09"
+    },
+    {
+        "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d488",
+        "num_warehouses": "W010",
+        "name": "Entrepôt Nord-Ouest",
+        "address": "120 Avenue de la Résistance, Bamenda",
+        "phone": "+237 699 000 010",
+        "email": "nordouest@warehouse.cm",
+        "logo": "nordouest.png",
+        "created_at": "2024-11-10"
+    }
+]

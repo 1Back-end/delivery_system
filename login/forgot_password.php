@@ -48,15 +48,15 @@
                             </div>
 
                             <!-- Phone input -->
-                            <div class="form-group col-lg-6 col-md-8 col-sm-12">
-                                <label for="phone" class="form-label">Numéro de téléphone</label>
-                                <input type="tel" id="phone" name="phone" 
-                                       class="form-control intl-tel-input form-control-lg shadow-none max-width-1000" 
-                                       placeholder="690126634" required />
+                            <div class="form-group w-100 d-block">
+                                <label for="phone" class="form-label">Adresse mail</label>
+                                <input type="email"  name="email" 
+                                       class="form-control form-control-lg" 
+                                       placeholder="john.doe@example.com" required />
                             </div>
 
                             <!-- Submit button -->
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-customize btn-responsive text-white w-100">
                                     Réinitialiser le mot de passe
                                 </button>

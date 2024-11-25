@@ -1,0 +1,92 @@
+<?php
+// lang.php
+
+// Vérifiez si une langue a été choisie dans l'URL ou utilisez la langue par défaut
+$lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr'; // Langue par défaut = français
+
+// Traductions
+$translations = [
+    'fr' => [
+        'dashboard' => 'Tableau de bord',
+        'drivers' => 'Chauffeurs',
+        'packages' => 'Les colis',
+        'warehouses' => 'Les entrepôts',
+        'clients' => 'Les clients',
+        'tracking' => 'Livraisons',
+        'carriers' => 'Les transporteurs',
+        'reports' => 'Rapports',
+        'locations' => 'Localisations',
+        'manage_regions' => 'Gérer les régions',
+        'manage_cities' => 'Gérer les villes',
+        'manage_neighborhoods' => 'Gérer les quartiers',
+        'settings' => 'Paramètres',
+        'general_settings' => 'Général',
+        'user_management' => 'Gestion des utilisateurs',
+        'notifications' => 'Notifications',
+        'security' => 'Sécurité',
+        'system_language' => 'Langue',
+        'add_new_language' => 'Ajouter une nouvelle langue',
+        'language_code' => 'Code de la langue (fr, en, etc.)',
+        'language_name' => 'Nom de la langue',
+        'flag_url' => 'URL de l\'image du drapeau',
+        'success_message' => 'Langue ajoutée avec succès',
+        'error_message' => 'Erreur lors de l\'ajout de la langue',
+        'smtp'=>'Smtp',
+        'smtp' => 'Mes informations SMTP',
+        'username' => 'Nom d\'utilisateur',
+        'email' => 'Email',
+        'name' => 'Nom',
+        'host' => 'Hôte',
+        'port' => 'Port',
+        'encryption' => 'Chiffrement',
+        'save_button' => 'Enregistrer les paramètres SMTP',
+        'erreur_champ' => 'Tous les champs sont obligatoires.',
+        'erreur_existant' => 'Une langue avec ce code existe déjà.',
+        'success' => 'Langue ajoutée avec succès !',
+        'erreur_db' => 'Erreur lors de l\'ajout de la langue : ',
+    ],
+    'en' => [
+        'dashboard' => 'Dashboard',
+        'drivers' => 'Drivers',
+        'packages' => 'Packages',
+        'warehouses' => 'Warehouses',
+        'clients' => 'Clients',
+        'tracking' => 'Deliveries',
+        'carriers' => 'Carriers',
+        'reports' => 'Reports',
+        'locations' => 'Locations',
+        'manage_regions' => 'Manage Regions',
+        'manage_cities' => 'Manage Cities',
+        'manage_neighborhoods' => 'Manage Neighborhoods',
+        'settings' => 'Settings',
+        'general_settings' => 'General',
+        'user_management' => 'User Management',
+        'notifications' => 'Notifications',
+        'security' => 'Security',
+        'system_language' => 'Language',
+        'add_new_language' => 'Add a new language',
+        'language_code' => 'Language code (fr, en, etc.)',
+        'language_name' => 'Language name',
+        'flag_url' => 'Flag image URL',
+        'success_message' => 'Language added successfully',
+        'error_message' => 'Error adding language',
+        'smtp'=>'Smtp',
+        'smtp' => 'My SMTP Information',
+        'username' => 'Username',
+        'email' => 'Email',
+        'name' => 'Name',
+        'host' => 'Host',
+        'port' => 'Port',
+        'encryption' => 'Encryption',
+        'save_button' => 'Save SMTP Settings',
+        'erreur_champ' => 'All fields are required.',
+        'erreur_existant' => 'A language with this code already exists.',
+        'success' => 'Language added successfully!',
+        'erreur_db' => 'Error adding language: ',
+        // ... Ajoutez d'autres chaînes de traduction ici
+    ]
+];
+
+// Sélectionner les traductions appropriées
+$selected_lang = $translations[$lang];
+?>
