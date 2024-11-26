@@ -57,7 +57,7 @@
 
                         </div>
                         
-                        <button type="submit"  class="btn btn-customize text-white text-uppercase border-0 shadow-none" name="submit"><?= htmlspecialchars($selected_lang['add_new_language']); ?></button>
+                        <button type="submit"  class="btn btn-customize btn-responsive text-white text-uppercase border-0 shadow-none" name="submit"><?= htmlspecialchars($selected_lang['add_new_language']); ?></button>
                     </form>
 
                    </div>

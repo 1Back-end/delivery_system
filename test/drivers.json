@@ -1,0 +1,122 @@
+[
+    {
+        "uuid": "c8b9e5f5-10ed-4c92-bbb9-37902f0d6e8d",
+        "warehouse_uuid": "e8cdada1-2e5a-4691-8b06-c90d8fe61842",
+        "firstname": "Jean",
+        "lastname": "Dupont",
+        "phone": "+237698743567",
+        "email": "jean.dupont@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV001",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:45:00"
+    },
+    {
+        "uuid": "d13cc6d1-f4a1-46ff-9a3f-0c578ef6fe16",
+        "warehouse_uuid": "a6d3b7fe-e5a6-4f7d-8049-704de8e9e10b",
+        "firstname": "Marie",
+        "lastname": "Lemoine",
+        "phone": "+237698743568",
+        "email": "marie.lemoine@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV002",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:47:00"
+    },
+    {
+        "uuid": "73b75544-5635-4727-b5f9-83153223f689",
+        "warehouse_uuid": "f5f4d53f-16d6-4b9b-9e6c-bc2a10f2f05d",
+        "firstname": "Paul",
+        "lastname": "Nze",
+        "phone": "+237698743569",
+        "email": "paul.nze@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV003",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:50:00"
+    },
+    {
+        "uuid": "f0c03eab-8b56-4b0b-9e57-750aab92b5c6",
+        "warehouse_uuid": "b9746f13-e4e5-4180-8cfb-d1ff28bba83d",
+        "firstname": "Alice",
+        "lastname": "Baye",
+        "phone": "+237698743570",
+        "email": "alice.baye@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV004",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:52:00"
+    },
+    {
+        "uuid": "8b37d130-734b-44ac-9bb2-91fd6a98f2e5",
+        "warehouse_uuid": "63d1edbc-0c91-4ca3-bf07-9f89b61e8c06",
+        "firstname": "Luc",
+        "lastname": "Mouton",
+        "phone": "+237698743571",
+        "email": "luc.mouton@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV005",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:55:00"
+    },
+    {
+        "uuid": "b592a648-c9e7-49a2-9a80-90a050405582",
+        "warehouse_uuid": "a2b99d76-7641-4753-bab6-31a7793c6f80",
+        "firstname": "Emma",
+        "lastname": "Kouadio",
+        "phone": "+237698743572",
+        "email": "emma.kouadio@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV006",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T10:58:00"
+    },
+    {
+        "uuid": "12ac9e09-24b3-4c9d-8fdf-907d55723b69",
+        "warehouse_uuid": "a4566672-3a60-4bfe-8de0-18e110bfb6b9",
+        "firstname": "Nathalie",
+        "lastname": "Njie",
+        "phone": "+237698743573",
+        "email": "nathalie.njie@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV007",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T11:00:00"
+    },
+    {
+        "uuid": "bc3b1a6b-bfa5-4fe4-80c2-70ed1c20cba4",
+        "warehouse_uuid": "7237a72e-76b1-442e-a70c-e4db7208f672",
+        "firstname": "Pierre",
+        "lastname": "Lemou",
+        "phone": "+237698743574",
+        "email": "pierre.lemou@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV008",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T11:02:00"
+    },
+    {
+        "uuid": "79d2a383-5d5b-44e4-9d43-2f07f4d79898",
+        "warehouse_uuid": "2c9713d0-4992-4309-93e5-64de48960562",
+        "firstname": "Rachelle",
+        "lastname": "Tcham",
+        "phone": "+237698743575",
+        "email": "rachelle.tcham@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV009",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T11:05:00"
+    },
+    {
+        "uuid": "5109f7b5-3159-4c8e-8d61-16a5c7c22132",
+        "warehouse_uuid": "f9f032f7-8d8a-417b-9934-bb08b16d6722",
+        "firstname": "Zacharie",
+        "lastname": "Dogo",
+        "phone": "+237698743576",
+        "email": "zacharie.dogo@example.com",
+        "added_by": "3c81f402-f3ab-4db9-bd72-4c01fd04d7f9",
+        "num_drivers": "DRV010",
+        "is_deleted": 0,
+        "created_at": "2024-11-26T11:07:00"
+    }
+]

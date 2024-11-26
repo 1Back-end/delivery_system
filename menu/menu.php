@@ -86,7 +86,7 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon fa fa-language"></span><span class="mtext"><?php echo $selected_lang['system_language']; ?></span>
                     </a>
@@ -94,7 +94,7 @@
                         <li><a href="?lang=fr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png" alt="Français" width="30" height="20"> Français</a></li>
                         <li><a href="?lang=en"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="Anglais" width="30" height="20"> Anglais</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="../admin/dashboard.php" class="dropdown-toggle no-arrow">

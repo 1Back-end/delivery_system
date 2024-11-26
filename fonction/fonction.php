@@ -56,24 +56,161 @@ function get_warehouses_count($pdo) {
     return $stmt->fetchColumn();
 }
 
+function get_count_drivers($pdo){
+    $query = "SELECT COUNT(*) as count FROM drivers WHERE is_deleted = 0";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Vérifier si le résultat a bien été récupéré
+    if ($result) {
+        return $result['count']; // Retourner directement la valeur du count
+    } else {
+        return 0; // Si aucun résultat, retourner 0
+    }
+
+}
+$count_drivers = get_count_drivers($pdo);
+
+function get_warehouses_active($pdo){
+    $query = "SELECT * FROM warehouses WHERE is_deleted = 0 AND status = 'active'";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+$all_warehouses_active = get_warehouses_active($pdo);
+
+function get_all_drivers($pdo, $limit, $offset) {
+    $query = "
+        SELECT 
+            drivers.uuid AS driver_uuid, 
+            drivers.num_drivers, 
+            drivers.firstname, 
+            drivers.lastname, 
+            drivers.phone, 
+            drivers.email, 
+            warehouses.name AS warehouse_name, 
+            warehouses.logo AS warehouse_logo 
+        FROM drivers
+        LEFT JOIN warehouses ON drivers.warehouse_uuid = warehouses.uuid 
+        WHERE drivers.is_deleted = 0 
+        ORDER BY drivers.created_at DESC
+        LIMIT :limit OFFSET :offset
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
+    $stmt->bindParam(":offset", $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_total_drivers($pdo) {
+    $query = "SELECT COUNT(*) FROM drivers WHERE is_deleted = 0";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchColumn();
+}
+
+function get_all_regions($pdo, $page = 1, $limit = 5) {
+    $offset = ($page - 1) * $limit;
+    $query = "SELECT * FROM regions ORDER BY name ASC LIMIT :limit OFFSET :offset";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
+    $stmt->bindParam(":offset", $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Récupérer la page actuelle, si aucune page n'est définie, commencer à la page 1
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$regions = get_all_regions($pdo, $page);
+
+function get_total_regions($pdo) {
+    $query = "SELECT COUNT(*) FROM regions";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchColumn();
+}
+
+$total_regions = get_total_regions($pdo);
+$limit = 5;
+$total_pages = ceil($total_regions / $limit);
 
 
+function get_region_for_city($pdo){
+    $query = "SELECT * FROM regions ORDER BY name ASC";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+$region_for_city = get_region_for_city($pdo);
 
 
+function get_city_with_region($pdo, $limit, $offset) {
+    // Requête SQL pour obtenir les villes et les régions associées avec pagination
+    $query = "
+        SELECT cities.uuid AS city_uuid, cities.name AS city_name, regions.name AS region_name, cities.created_at
+        FROM cities
+        JOIN regions ON cities.region_uuid = regions.uuid
+        WHERE cities.is_deleted = 0
+        ORDER BY cities.created_at DESC
+        LIMIT :limit OFFSET :offset
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    // Retourner les résultats
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_total_city_count($pdo) {
+    // Compter le nombre total de villes (pour la pagination)
+    $query = "SELECT COUNT(*) AS total FROM cities WHERE is_deleted = 0";
+    $stmt = $pdo->query($query);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+}
+
+function get_city_with_is_deleted($pdo){
+    $query = "SELECT * FROM cities WHERE is_deleted = 0 ORDER BY name ASC";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
+$all_city_not_deleted = get_city_with_is_deleted($pdo);
 
 
+function get_neighborhood_with_city($pdo, $page = 1, $perPage = 10) {
+    // Calculer la position pour la pagination
+    $start = ($page - 1) * $perPage;
 
+    // Requête pour récupérer les villes et leurs quartiers
+    $query = "
+        SELECT c.name AS city_name, n.name AS neighborhood_name, n.created_at, n.uuid AS neighborhood_uuid
+        FROM neighborhoods n
+        JOIN cities c ON n.city_uuid = c.uuid
+        LIMIT :start, :perPage
+    ";
 
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':start', $start, PDO::PARAM_INT);
+    $stmt->bindParam(':perPage', $perPage, PDO::PARAM_INT);
+    $stmt->execute();
 
+    // Récupérer les résultats
+    $neighborhoods = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // Requête pour compter le nombre total de quartiers pour la pagination
+    $countQuery = "SELECT COUNT(*) FROM neighborhoods";
+    $countStmt = $pdo->query($countQuery);
+    $totalCount = $countStmt->fetchColumn();
 
-
-
-
-
-
-
-
+    return [
+        'data' => $neighborhoods,
+        'total' => $totalCount
+    ];
+}
 
 
 function generateDriverCode($prefix = "DRV") {
@@ -81,13 +218,13 @@ function generateDriverCode($prefix = "DRV") {
     $prefix = strtoupper($prefix);
     
     // Date actuelle sous le format YYYYMMDD
-    $date = date('Ymd');
+    $date = date('Y');
     
     // Générer un identifiant aléatoire unique
-    $uniqueId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
+    $uniqueId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 5));
     
     // Code complet du chauffeur
-    $driverCode = "{$prefix}-{$date}-{$uniqueId}";
+    $driverCode = "{$prefix}{$date}{$uniqueId}";
     
     return $driverCode;
 }

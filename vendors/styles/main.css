@@ -181,9 +181,10 @@ textarea.form-control {
  }
 
 
-
-.custom-pagination .page-item .page-link {
+ .custom-pagination .page-item .page-link {
   color: #1F4283; /* Couleur du texte */
+  background-color: transparent; /* Fond transparent pour les liens */
+  border: 1px solid #ddd; /* Bordure fine autour des liens */
 }
 
 .custom-pagination .page-item.active .page-link {
@@ -192,10 +193,12 @@ textarea.form-control {
   color: white; /* Couleur du texte de l'élément actif */
 }
 
+/* Pas de hover ou de changement de couleur au survol */
 .custom-pagination .page-item .page-link:hover {
-  background-color: #1F4283; /* Couleur de fond au survol */
-  color: white; /* Couleur du texte au survol */
+  background-color: transparent;
+  color: #1F4283;
 }
+
 .notification-list ul li a h3 {
   font-size: 16px;
   color: #202342;
