@@ -44,6 +44,8 @@ if (isset($_POST["submit"])) {
                 // Rediriger en fonction du rôle
                 if ($user['role'] === 'admin') {
                     header("Location: ../admin/dashboard.php");
+                } elseif ($user['role'] === 'expediteur') {
+                    header("Location: ../users/dashboard.php");
                 } else {
                     header("Location: login.php");
                 }

@@ -50,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-			<?php include '../login/session_user.php'; ?>
+			<?php include '../login/session_admin.php'; ?>
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 				<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -126,11 +126,11 @@
                         <span class="micon fa fa-map-marked-alt"></span><span class="mtext"><?php echo $selected_lang['tracking']; ?></span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="../admin/carriers.php" class="dropdown-toggle no-arrow">
                         <span class="micon fa fa-truck-loading"></span><span class="mtext"><?php echo $selected_lang['carriers']; ?></span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="../admin/reports.php" class="dropdown-toggle no-arrow">
                         <span class="micon fa fa-chart-line"></span><span class="mtext"><?php echo $selected_lang['reports']; ?></span>

@@ -86,7 +86,7 @@
                                         <td><?php echo $index + 1 + ($page - 1) * $limit; ?></td>
                                         <td><?php echo htmlspecialchars($city['region_name']); ?></td>
                                         <td><?php echo htmlspecialchars($city['city_name']); ?></td>
-                                        <td><?php echo date('d/m/Y', strtotime($city['created_at'])); ?></td>
+                                        <td><?php echo date('d/m/Y H:i:s', strtotime($city['created_at'])); ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php else: ?>

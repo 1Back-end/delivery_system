@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"] ?? null;
 
     // Générer UUID et numéro utilisateur
-        
+    $uuid = generateUUID4();
     $num_users = generateUserUUID();
 
     // Afficher les données récupérées pour débogage
