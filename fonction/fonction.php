@@ -213,6 +213,111 @@ function get_neighborhood_with_city($pdo, $page = 1, $perPage = 10) {
 }
 
 
+function get_count_cars($pdo){
+    $query = "SELECT COUNT(*) AS count FROM vehicles WHERE is_deleted = 0";
+    $stmt = $pdo->query($query);
+    return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+}
+$count_vehicles = get_count_cars($pdo);
+
+function get_car_with_drivers($pdo, $limit = 10, $offset = 0) {
+    // Requête SQL pour récupérer les données des véhicules avec les chauffeurs
+    $query = "SELECT v.uuid AS vehicle_uuid, v.license_plate, v.capacity, v.description, v.qr_code_path,
+                     v.fuel_type,v.created_at,v.num_vehicles,v.status, d.firstname AS driver_firstname, d.lastname AS driver_lastname,
+                     v.is_deleted AS vehicle_is_deleted, d.is_deleted AS driver_is_deleted
+              FROM vehicles v
+              LEFT JOIN drivers d ON v.driver_uuid = d.uuid
+              WHERE v.is_deleted = 0 AND d.is_deleted = 0  -- Exclure les véhicules ou chauffeurs supprimés
+              ORDER BY v.created_at DESC
+              LIMIT :limit OFFSET :offset";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    // Retourne les résultats sous forme de tableau associatif
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_total_vehicle_count($pdo) {
+    // Requête SQL pour compter le nombre total de véhicules actifs
+    $query = "SELECT COUNT(*) FROM vehicles v
+              LEFT JOIN drivers d ON v.driver_uuid = d.uuid
+              WHERE v.is_deleted = 0 AND d.is_deleted = 0"; // Exclure les véhicules ou chauffeurs supprimés
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+
+function get_drivers_not_deleted($pdo){
+    $query = "SELECT * FROM drivers WHERE is_deleted = 0 ORDER BY created_at DESC";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+$drivers = get_drivers_not_deleted($pdo);
+
+function car_type(){
+    $vehicle_types = array(
+        "Voiture",
+        "Camion",
+        "Moto",
+        "Bateau",
+        "Avion",
+        );
+    return $vehicle_types;
+
+}
+$vehicle_types = car_type();
+
+
+function get_count_package($pdo){
+    $query = "SELECT COUNT(*) AS count FROM packages WHERE is_deleted = 0";
+    $stmt = $pdo->query($query);
+    return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+
+}
+$count_package = get_count_package($pdo);
+
+function get_all_package($pdo, $offset, $perPage){
+    $query = "
+        SELECT 
+            p.uuid AS package_uuid,
+            p.package_code,
+            p.package_type,
+            p.dimensions,
+            p.weight,
+            p.status,
+            p.package_image,
+            p.scheduled_delivery_date,
+            p.created_at,
+            u1.firstname AS sender_firstname,
+            u1.photo AS sender_photo,
+            u1.lastname AS sender_lastname,
+            u1.email AS sender_email,
+            u1.phone_number AS sender_contact,
+            u2.firstname AS receiver_firstname,
+            u2.lastname AS receiver_lastname,
+            u2.email AS receiver_email,
+            u2.phone_number AS receiver_contact,
+            u2.photo AS receiver_photo
+        FROM packages p
+        JOIN users u1 ON p.sender_uuid = u1.uuid
+        JOIN users u2 ON p.receiver_uuid = u2.uuid
+        WHERE p.is_deleted = 0
+        LIMIT :offset, :perPage
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->bindParam(':perPage', $perPage, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function generateDriverCode($prefix = "DRV") {
     // Préfixe pour le code (par défaut "DRV")
     $prefix = strtoupper($prefix);
@@ -229,18 +334,25 @@ function generateDriverCode($prefix = "DRV") {
     return $driverCode;
 }
 
+function generateTrackingNumber()
+{
+    // Générer un code unique avec l'année actuelle et une chaîne aléatoire de 10 chiffres
+    return date('Y') . rand(1000000000, 9999999999);
+}
+
+
 function generateParcelCode($prefix = "COL") {
     // Préfixe pour le code (par défaut "COL")
     $prefix = strtoupper($prefix);
     
     // Date actuelle sous le format YYYYMMDD
-    $date = date('Ymd');
+    $date = date('Y');
     
     // Générer un identifiant unique aléatoire
     $uniqueId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 5));
     
     // Code complet du colis
-    $parcelCode = "{$prefix}-{$date}-{$uniqueId}";
+    $parcelCode = "{$prefix}{$date}{$uniqueId}";
     
     return $parcelCode;
 }
@@ -281,13 +393,13 @@ function generateCarrierCode($prefix = "CAR") {
     $prefix = strtoupper($prefix);
     
     // Date actuelle au format YYYYMMDD
-    $date = date('Ymd');
+    $date = date('Y');
     
     // Générer un identifiant unique aléatoire
-    $uniqueId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
+    $uniqueId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
     
     // Combiner les éléments pour former le code
-    $carrierCode = "{$prefix}-{$date}-{$uniqueId}";
+    $carrierCode = "{$prefix}{$date}{$uniqueId}";
     
     return $carrierCode;
 }
@@ -400,5 +512,52 @@ function generateUserUUID() {
     return strtoupper($uuid);  // Retourne en majuscules
 }
 
-// // Exemple d'utilisation
-// echo generateUserUUID(); // Exemple de résultat : 5F4E7D83D23A4E1A9C9BEB9D2D5489A7
+
+// Fonction pour récupérer les marques de voitures
+function brand_car() {
+    $brands = array(
+        "Toyota",
+        "Honda",
+        "Ford",
+        "Chevrolet",
+        "Hyundai",
+        "Nissan",
+        "Volkswagen",
+        "BMW"
+    );
+
+    // Retourner le tableau des marques
+    return $brands;
+}
+
+// Fonction pour récupérer les modèles de voitures associés à chaque marque
+function model_car() {
+    $models = array(
+        "Toyota" => array("Corolla", "Camry", "Hilux", "Yaris"),
+        "Honda" => array("Civic", "Accord", "CR-V", "Pilot"),
+        "Ford" => array("Fiesta", "Focus", "Mustang", "Explorer"),
+        "Chevrolet" => array("Malibu", "Cruze", "Equinox", "Tahoe"),
+        "Hyundai" => array("Elantra", "Sonata", "Tucson", "Palisade"),
+        "Nissan" => array("Altima", "Maxima", "Murano", "Rogue"),
+        "Volkswagen" => array("Golf", "Passat", "Tiguan", "Jetta"),
+        "BMW" => array("Series 3", "Series 5", "X3", "X5")
+    );
+
+    // Retourner le tableau des modèles
+    return $models;
+}
+
+// Appel des fonctions pour récupérer les données
+$brands = brand_car();
+$models = model_car();
+
+function fuel_type(){
+    $fuel = array(
+        "Essence",
+        "Diesel",
+        "Electrique",
+        "Hybride"
+    );
+    return $fuel;
+}
+$fuels = fuel_type();

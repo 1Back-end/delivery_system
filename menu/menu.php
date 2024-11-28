@@ -126,6 +126,11 @@
                         <span class="micon fa fa-map-marked-alt"></span><span class="mtext"><?php echo $selected_lang['tracking']; ?></span>
                     </a>
                 </li>
+                <li>
+                    <a href="../admin/car.php" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-car"></span><span class="mtext"><?php echo $selected_lang['car']; ?></span>
+                    </a>
+                </li>
                 <!-- <li>
                     <a href="../admin/carriers.php" class="dropdown-toggle no-arrow">
                         <span class="micon fa fa-truck-loading"></span><span class="mtext"><?php echo $selected_lang['carriers']; ?></span>

@@ -55,6 +55,7 @@ $translations = [
         'create_warehouse_button' => 'Créer l\'entrepôt',
         'error_message' => 'Une erreur est survenue. Veuillez vérifier les champs.',
         'success_message' => 'Entrepôt ajouté avec succès.',
+        'car'=> 'Véhicules',
     ],
     'en' => [
         'dashboard' => 'Dashboard',
@@ -105,6 +106,7 @@ $translations = [
         'create_warehouse_button' => 'Create Warehouse',
         'error_message' => 'An error occurred. Please check the fields.',
         'success_message' => 'Warehouse added successfully.',
+        'car'=> 'Car',
         // ... Ajoutez d'autres chaînes de traduction ici
     ]
 ];
