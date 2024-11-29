@@ -24,9 +24,14 @@
 </head>
 <body>
 
-
+<?php include("process_forgot_password.php"); ?>
 <div class="container mt-5 pb-5">
     <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12 mb-2">
+        <?php if (!empty($erreur)): ?>
+            <div class="alert alert-danger text-center"><?= $erreur; ?></div>
+        <?php endif; ?>
+        </div>
         <div class="col-md-8 col-sm-12">
             <div class="card-box p-3 mt-3 shadow-none bg-white">
                 <div class="row align-items-center">
@@ -44,20 +49,23 @@
                             <!-- Title and description -->
                             <div class="mb-3">
                                 <h5>Réinitialiser votre mot de passe</h5>
-                                <p class="font-12 mb-3">Entrez votre numéro de téléphone lié à votre compte pour réinitialiser votre mot de passe.</p>
+                                <p class="font-12 mb-3">Entrez votre l'adresse email lié à votre compte pour réinitialiser votre mot de passe.</p>
                             </div>
 
                             <!-- Phone input -->
                             <div class="form-group w-100 d-block">
                                 <label for="phone" class="form-label">Adresse mail</label>
                                 <input type="email"  name="email" 
-                                       class="form-control form-control-lg" 
-                                       placeholder="john.doe@example.com" required />
+                                       class="form-control form-control-lg shadow-none" 
+                                       placeholder="john.doe@example.com" />
+                                <?php if (!empty($erreur_champ)): ?>
+                                    <div class="text-danger font-12"><?= $erreur_champ; ?></div>
+                                <?php endif; ?>
                             </div>
 
                             <!-- Submit button -->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-customize btn-responsive text-white w-100">
+                                <button type="submit" name="btn_forgot_password" class="btn btn-customize btn-responsive text-white w-100">
                                     Réinitialiser le mot de passe
                                 </button>
                             </div>

@@ -69,7 +69,7 @@ $total_pages = ceil($total_drivers / $per_page);
                         // Vérifier si la photo est vide ou non
                         if (empty($driver['photo'])) {
                             // Si la photo est vide, afficher l'image par défaut
-                            $photo_path = 'https://i.pinimg.com/736x/6d/60/42/6d60423886799b95eea2fbb2f021f0b0.jpg';
+                            $photo_path = 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg';
                         } else {
                             // Si la photo existe, utiliser le chemin de la photo téléchargée
                             $photo_path = "../uploads/drivers/" . htmlspecialchars($driver['photo']);
