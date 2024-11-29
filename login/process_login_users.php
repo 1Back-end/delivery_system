@@ -34,6 +34,17 @@ if (isset($_POST["submit"])) {
             } elseif (!password_verify($password, $user['password'])) {
                 $erreur = "Email ou mot de passe incorrect.";
             } else {
+                // Vérification pour les expéditeurs uniquement
+                if (
+                    $user['role'] === 'expediteur' &&
+                    (empty($user['photo']) || empty($user['region']) || empty($user['ville']) || empty($user['quartier']))
+                ) {
+                    // Redirection vers le formulaire pour compléter le compte
+                    $_SESSION['uuid'] = $user['uuid']; // Garder l'identifiant en session
+                    header("Location: ../users/complete_profile.php");
+                    exit;
+                }
+
                 // Définir les sessions séparées pour l'utilisateur
                 $_SESSION['fullname'] = $user['firstname'] . ' ' . $user['lastname'];
                 $_SESSION['uuid'] = $user['uuid'];

@@ -143,7 +143,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon fa fa-map"></span><span class="mtext"><?php echo $selected_lang['locations']; ?></span>
+                        <span class="micon fa fa-map-marker"></span><span class="mtext"><?php echo $selected_lang['locations']; ?></span>
                     </a>
                     <ul class="submenu">
                         <li><a href="../admin/regions.php"><?php echo $selected_lang['manage_regions']; ?></a></li>
@@ -180,3 +180,4 @@
 	<script src="../vendors/scripts/dashboard.js"></script>
 </body>
 </html>
+

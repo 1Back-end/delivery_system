@@ -306,8 +306,8 @@ function get_all_package($pdo, $offset, $perPage){
         FROM packages p
         JOIN users u1 ON p.sender_uuid = u1.uuid
         JOIN users u2 ON p.receiver_uuid = u2.uuid
-        WHERE p.is_deleted = 0
-        LIMIT :offset, :perPage
+        WHERE p.is_deleted = 0 ORDER BY p.created_at DESC
+        LIMIT :offset, :perPage 
     ";
 
     $stmt = $pdo->prepare($query);

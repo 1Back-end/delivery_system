@@ -23,6 +23,14 @@ securePassword123
 
 
 
+CREATE TABLE deliveries (
+    uuid VARCHAR(36) PRIMARY KEY,
+    package_uuid VARCHAR(36),
+    delivery_agent_uuid VARCHAR(36),
+    delivery_status ENUM('Assigned', 'Out for Delivery', 'Delivered') DEFAULT 'Assigned',
+    delivery_date DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 
 

@@ -51,11 +51,14 @@
 				<div class="dropdown">
 				<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 					<span class="user-icon shadow-none">
-						<img src="<?php echo !empty($_SESSION['photo']) ? $_SESSION['photo'] : 'https://i.pinimg.com/736x/06/99/21/069921662e3ecc7cf3fc51527c30801f.jpg'; ?>" alt="">
+						<?php if(empty($_SESSION['photo'])) : ?>
+							<img src="https://i.pinimg.com/736x/06/99/21/069921662e3ecc7cf3fc51527c30801f.jpg" alt="">
+						<?php else : ?>
+							<img src="../uploads/users/<?php echo $_SESSION['photo'];?>" alt="">
+                        <?php endif;?>
 					</span>
 					<span class="user-name font-14"><?php echo $_SESSION['fullname']; ?></span>
 				</a>
-
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 					<a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i> Profile</a>
 					
