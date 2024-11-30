@@ -108,6 +108,11 @@ $total_pages = ceil($total_warehouses / $limit);
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item text-success" href="view_packages.php?uuid=<?= $warehouse['uuid']; ?>">
+                                                    <span class="fa fa-cube text-success"></span> Voir les colis
+                                                </a>
+                                            </li>
+                                                <li>
                                                 <a class="dropdown-item text-danger" href="delete_warehouses.php?uuid=<?= $warehouse['uuid']; ?>">
                                                     <span class="fa fa-trash-o text-danger"></span> Supprimer
                                                 </a>

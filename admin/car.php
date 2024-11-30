@@ -73,11 +73,13 @@ $vehicles = get_car_with_drivers($pdo, $limit, $offset);
                             <td><?php echo $vehicle['capacity']; ?></td>
                             <td><?php echo $vehicle['driver_firstname'] . ' ' . $vehicle['driver_lastname']; ?></td>
                             <td>
-                                <?php if($vehicle["status"]=='Disponible'): ?>
+                                <?php if($vehicle["status"]=='available'): ?>
                                      <span class="badge badge-success">Disponible</span>
-                                <?php else:?>
-                                    <span class="badge badge-danger">Occupé</span>
-                                <?php endif;?>
+                                <?php elseif($vehicle["status"]=='on_trip'): ?>
+                                     <span class="badge badge-warning">En cours de voyage</span>
+                                <?php else: ?>
+                                    <span class="badge badge-danger">Indisponible</span>
+                                <?php endif; ?>
                             </td>
                             <td><?php echo date('d-m-Y H:i:s', strtotime($vehicle['created_at'])); ?></td>
 

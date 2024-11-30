@@ -474,6 +474,111 @@ function generateRandomYear($startYear = 1900, $endYear = null) {
     return $year;
 }
 
+function get_package_status_stats($pdo) {
+    // Requête SQL pour récupérer le nombre de colis par statut
+    $sql = "SELECT status, COUNT(*) as count
+            FROM packages
+            WHERE is_deleted = 0
+            GROUP BY status";
+    
+    // Préparer et exécuter la requête
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    
+    // Initialiser un tableau avec les statuts par défaut (si jamais ils n'existent pas dans la table)
+    $data = [
+        'en attente' => 0,
+        'en cours' => 0,
+        'livré' => 0,
+        'perdu' => 0,
+        'annulé' => 0
+    ];
+
+    // Remplir les données récupérées dans le tableau
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // On met à jour seulement les statuts existants dans la base de données
+        if (array_key_exists($row['status'], $data)) {
+            $data[$row['status']] = $row['count'];
+        }
+    }
+
+    // Filtrer les statuts qui ont un count de 0
+    $data = array_filter($data, function($count) {
+        return $count > 0;
+    });
+
+    // Retourner les données des statuts de colis (sans les statuts à zéro)
+    return $data;
+}
+// Appeler la fonction et récupérer les statistiques
+$stats = get_package_status_stats($pdo);
+
+
+function get_warehouse_statistics($pdo) {
+    // Requête SQL pour récupérer les statistiques des entrepôts
+    $sql = "SELECT w.name AS warehouse_name, 
+                   COUNT(v.uuid) AS total_vehicles, 
+                   COUNT(d.uuid) AS total_drivers
+            FROM warehouses w
+            LEFT JOIN drivers d ON d.warehouse_uuid = w.uuid AND d.is_deleted = 0
+            LEFT JOIN vehicles v ON v.driver_uuid = d.uuid AND v.is_deleted = 0
+            WHERE w.is_deleted = 0
+            GROUP BY w.uuid";
+    
+    // Préparer et exécuter la requête
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    
+    $data = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // Ajouter l'entrepôt si il a au moins un véhicule ou un chauffeur
+        if ($row['total_vehicles'] > 0 || $row['total_drivers'] > 0) {
+            $data[] = [
+                'warehouse_name' => $row['warehouse_name'],
+                'total_vehicles' => $row['total_vehicles'],
+                'total_drivers' => $row['total_drivers']
+            ];
+        }
+    }
+    
+    return $data;
+}
+
+// Récupérer les statistiques des entrepôts
+$status = get_warehouse_statistics($pdo);
+
+// Convertir les données en format JSON pour JavaScript
+$warehouses = [];
+$vehicles = [];
+$drivers = [];
+
+foreach ($status as $stat) {
+    $warehouses[] = $stat['warehouse_name'];
+    $vehicles[] = $stat['total_vehicles'];
+    $drivers[] = $stat['total_drivers'];
+}
+
+function get_total_packages($pdo) {
+    // Requête SQL pour récupérer le nombre total de colis
+    $sql = "SELECT COUNT(*) AS total FROM packages WHERE is_deleted = 0";
+    
+    // Préparer et exécuter la requête
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    
+    // Récupérer le nombre total de colis
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row['total'];
+}
+$total_packages = get_total_packages($pdo);
+
+
+
+// function coutn
+
+
+
+
 // Exemple d'utilisation
 // echo generateRandomYear(); // Exemple de résultat : 1983
 function generateRandomDateTime($startYear = 2000, $endYear = null) {

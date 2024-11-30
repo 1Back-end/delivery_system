@@ -12,7 +12,10 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "Connexion réussie à la base de données";
 } catch (PDOException $e) {
-    // En cas d'erreur de connexion, afficher un message d'erreur
-    echo "Erreur de connexion : " . $e->getMessage();
+    // En cas d'erreur de connexion, consigner les détails dans un fichier de log
+    error_log("Erreur de connexion à la base de données : " . $e->getMessage(), 3, __DIR__ . '/errors.log');
+    
+    // Afficher un message générique à l'utilisateur
+    die("Une erreur s'est produite sur le serveur. Veuillez réessayer plus tard.");
 }
 ?>

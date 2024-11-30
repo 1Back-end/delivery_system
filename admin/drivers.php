@@ -76,7 +76,7 @@ $total_pages = ceil($total_drivers / $per_page);
                         }
                         ?>
                         <img src="<?php echo $photo_path; ?>" alt="Photo Chauffeur" width='50' height='50' style='object-fit: cover; width:50px; height: 50px; max-width: 50px; max-height: 50px;' class="rounded-circle mr-2">
-                        <span><?php echo htmlspecialchars($driver['firstname']) . ' ' . htmlspecialchars($driver['lastname']); ?></span>
+                        <span class="text-truncate"><?php echo htmlspecialchars($driver['firstname']) . ' ' . htmlspecialchars($driver['lastname']); ?></span>
                     </td>
 
                         <td><?php echo htmlspecialchars($driver['phone']); ?></td>

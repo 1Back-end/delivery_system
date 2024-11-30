@@ -29,7 +29,7 @@ if (isset($_GET["vehicle_uuid"])) {
         $vehicle_created_at = date("d-m-Y H:i:s", strtotime($vehicle['created_at']));
         $driver_created_at = date("d-m-Y H:i:s", strtotime($vehicle['driver_created_at']));
     } else {
-        echo "Aucun véhicule trouvé.";
+        // echo "Aucun véhicule trouvé.";
     }
 }
 ?>
