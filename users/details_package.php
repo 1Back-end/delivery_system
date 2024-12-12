@@ -12,6 +12,8 @@ if (isset($_GET["package_uuid"])) {
     $query = "
         SELECT 
             p.uuid AS package_uuid,
+            p.qr_code,
+            p.tracking_number,
             p.package_code,
             p.package_type,
             p.dimensions,
@@ -68,83 +70,101 @@ if (isset($_GET["package_uuid"])) {
                     <!-- Informations du destinataire -->
                     <div class="col-lg-6 col-sm-12 mb-3">
                         <div class="mb-3">
-                            <h5 class="text-uppercase font-14">Informations du destinataire</h5>
+                            <h5 class="font-14">Informations du destinataire</h5>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Nom Complet : </strong><?php echo $package['receiver_firstname'] .' '. $package['receiver_lastname']; ?></p>
+                            <p class="font-14"><strong>Nom Complet : </strong><?php echo $package['receiver_firstname'] .' '. $package['receiver_lastname']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Email : </strong><?php echo $package['receiver_email']; ?></p>
+                            <p class="font-14"><strong>Email : </strong><?php echo $package['receiver_email']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Téléphone : </strong><?php echo $package['receiver_contact']; ?></p>
+                            <p class="font-14"><strong>Téléphone : </strong><?php echo $package['receiver_contact']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Région : </strong><?php echo $package['region_name']; ?></p>
+                            <p class="font-14"><strong>Région : </strong><?php echo $package['region_name']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Ville : </strong><?php echo $package['city_name']; ?></p>
+                            <p class="font-14"><strong>Ville : </strong><?php echo $package['city_name']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Quartier : </strong><?php echo $package['neighborhood_name']; ?></p>
+                            <p class="font-14"><strong>Quartier : </strong><?php echo $package['neighborhood_name']; ?></p>
                         </div>
                     </div>
 
                     <!-- Informations du colis -->
                     <div class="col-lg-6 col-sm-12 mb-3">
                         <div class="mb-3">
-                            <h5 class="text-uppercase font-14">Informations du colis</h5>
+                            <h5 class="font-14">Informations du colis</h5>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Type de colis : </strong><?php echo $package['package_type']; ?></p>
+                            <p class="font-14"><strong>Type de colis : </strong><?php echo $package['package_type']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Dimensions : </strong><?php echo $package['dimensions']; ?> m³</p>
+                            <p class="font-14"><strong>Dimensions : </strong><?php echo $package['dimensions']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Poids : </strong><?php echo $package['weight']; ?> kg</p>
+                            <p class="font-14"><strong>Poids : </strong><?php echo $package['weight']; ?> kg</p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Etat : </strong><?php echo $package['status']; ?></p>
+                            <p class="font-14"><strong>Etat : </strong><?php echo $package['status']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Code de suivi : </strong><?php echo $package['package_code']; ?></p>
+                            <p class="font-14"><strong>Code de suivi : </strong><?php echo $package['tracking_number']; ?></p>
                         </div>
                         <div class="mb-3">
-                            <p class="text-uppercase font-14"><strong>Prix à payer : </strong><?php echo $package['price']; ?> FCFA</p>
+                            <p class="font-14"><strong>Prix à payer : </strong><?php echo $package['price']; ?> FCFA</p>
                         </div>
                         <div class="mb-3">
-                        <p class="text-uppercase font-14"><strong>Valeur : </strong><?php echo $package['declared_value']; ?> FCFA</p>
+                        <p class="font-14"><strong>Valeur : </strong><?php echo $package['declared_value']; ?> FCFA</p>
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-    <div class="d-flex align-items-center justify-content-between">
-        <!-- Section image du colis -->
-        <div class="mr-auto">
-            <h6 class="text-uppercase font-14">Image du colis</h6>
-            <div class="mb-3">
-                <?php if (!empty($package['package_image'])): ?>
-                    <?php 
-                    $imagePath = "../uploads/packages/" . htmlspecialchars($package['package_image']);
-                    if (file_exists($imagePath)): 
-                    ?>
-                        <img src="<?= $imagePath ?>" alt="Image du colis" style="max-width: 100px; max-height: 100px;">
-                    <?php else: ?>
-                        <span>L'image n'existe pas à l'emplacement <?= $imagePath ?></span>
-                    <?php endif; ?>
-                <?php else: ?>
-                    <span>Aucune image disponible</span>
-                <?php endif; ?>
-            </div>
-        </div>
 
-        <!-- Section notification du destinataire -->
-        <div class="ml-auto">
-            <a href="notification.php?package_uuid=<?php echo $package['package_uuid']; ?>" class="btn btn-success btn-sm">
-                <i class="fa fa-bell" aria-hidden="true"></i>
-                Notifié le destinataire
-            </a>
-        </div>
-    </div>
-</div>
+
+                <div class="mb-3">
+                    <div class="col-md-12 col-sm-12 mb-3">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-12 mb-3">
+                                <div class="mb-2">
+                                 <h6 class="text-uppercase font-14">Image du colis</h6>
+                                </div>
+                                <div class="mb-3">
+                                    <?php if(empty($package['package_image'])): ?>
+                                        <span>Aucune image disponible</span>
+                                    <?php else : ?>
+                                        <img src="../uploads/packages/<?php htmlspecialchars($package['package_image'])?>" style="max-width: 100px; max-height: 100px;" alt="">
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 col-sm-12 mb-3">
+                                <div class="mb-2">
+                                 <h6 class="text-uppercase font-14">Code Qr du colis</h6>
+                                </div>
+                                <div class="mb-2">
+                                <?php if(empty($package['qr_code'])): ?>
+                                        <span>Aucune image disponible</span>
+                                    <?php else : ?>
+                                        <img src="../uploads/qrcodes_colis/<?php htmlspecialchars($package['qr_code'])?>" style="max-width: 100px; max-height: 100px;" alt="">
+                                <?php endif; ?>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12 mb-3">
+                                <div class="mb-3">
+                                <a href="notification.php?package_uuid=<?php echo $package['package_uuid']; ?>" class="btn btn-success btn-sm">
+                                        <i class="fa fa-bell" aria-hidden="true"></i>
+                                        Notifié le destinataire
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+

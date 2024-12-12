@@ -106,7 +106,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="6">Aucun élément trouvé</td>
+                            <td colspan="10">Aucun élément trouvé</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

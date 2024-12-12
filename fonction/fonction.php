@@ -18,27 +18,16 @@ function get_informations_smtp($pdo){
     return $information_smtp; // Retourner les informations récupérées
 }
 
-function get_count_warehouses($pdo) {
-    try {
-        $query = "SELECT COUNT(*) as count FROM warehouses WHERE is_deleted = 0";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        // Vérifier si le résultat a bien été récupéré
-        if ($result) {
-            return $result['count']; // Retourner directement la valeur du count
-        } else {
-            return 0; // Si aucun résultat, retourner 0
-        }
-    } catch (PDOException $e) {
-        // En cas d'erreur avec la requête, on peut gérer l'erreur ici
-        echo "Error: " . $e->getMessage();
-        return 0;
-    }
+// Fonction pour compter les entrepôts non supprimés
+function get_total_warehouses($pdo) {
+    $query = "SELECT COUNT(*) FROM warehouses WHERE is_deleted = 0";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchColumn();
 }
-$warehouses = get_count_warehouses($pdo);
 
+
+// Appel de la fonction
+$warehouses = get_total_warehouses($pdo);
 
 function get_all_warehouses($pdo, $limit, $offset){
     $query = "SELECT * FROM warehouses WHERE is_deleted = 0 ORDER BY created_at DESC LIMIT :limit OFFSET :offset";
@@ -171,6 +160,17 @@ function get_total_city_count($pdo) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result['total'];
 }
+function get_count_admins($pdo){
+    $query = "SELECT COUNT(*) AS total from users WHERE is_deleted = 0 AND role ='admin'";
+    $stmt = $pdo->query($query);
+    $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $stmt['total'];
+}
+function get_all_users_admin($pdo){
+    $query = "SELECT * FROM users WHERE is_deleted = 0 AND role ='admin' ORDER BY created_at DESC";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 function get_city_with_is_deleted($pdo){
     $query = "SELECT * FROM cities WHERE is_deleted = 0 ORDER BY name ASC";
@@ -178,6 +178,29 @@ function get_city_with_is_deleted($pdo){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
+
+function get_count_sender_and_receiver($pdo) {
+    $query = "SELECT COUNT(*) AS total 
+              FROM users 
+              WHERE is_deleted = 0 
+                AND (role = 'destinataire' OR role = 'expediteur')";
+    $stmt = $pdo->query($query);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['total'] ?? 0; // Utilisation d'une valeur par défaut si le résultat est vide
+}
+
+function get_all_receiver_and_sender($pdo) {
+    $query = "SELECT * 
+              FROM users 
+              WHERE is_deleted = 0 
+                AND (role = 'destinataire' OR role = 'expediteur') 
+              ORDER BY created_at DESC";
+    $stmt = $pdo->query($query);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
 $all_city_not_deleted = get_city_with_is_deleted($pdo);
 
 
@@ -252,12 +275,23 @@ function get_total_vehicle_count($pdo) {
 }
 
 
-function get_drivers_not_deleted($pdo){
-    $query = "SELECT * FROM drivers WHERE is_deleted = 0 ORDER BY created_at DESC";
-    $stmt = $pdo->query($query);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+function get_drivers_not_deleted($pdo) {
+    try {
+        $query = "SELECT * FROM drivers WHERE is_deleted = 0 ORDER BY created_at DESC";
+        $stmt = $pdo->query($query);
+        if (!$stmt) {
+            throw new Exception("La requête a échoué.");
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return []; // Retourne un tableau vide en cas d'erreur
+    }
 }
-$drivers = get_drivers_not_deleted($pdo);
+// Vérifiez le contenu de $drivers pour diagnostiquer le problème
+// $drivers = get_drivers_not_deleted($pdo);
+// var_dump($drivers); // Affiche la structure des données dans le tableau $drivers
+// exit;
 
 function car_type(){
     $vehicle_types = array(
@@ -316,6 +350,28 @@ function get_all_package($pdo, $offset, $perPage){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+
+$user_uuid = $_SESSION['uuid'];
+function get_user_connected($pdo,$user_uuid){
+    $query = "SELECT * FROM users WHERE uuid = :user_uuid";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':user_uuid',$user_uuid);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+$info_users = get_user_connected($pdo,$user_uuid);
+
+
+// function get_info_users($connexion, $uuid_admin){
+//     global $_SESSION; // Déclare $_SESSION comme globale
+//     $query = "SELECT * FROM admin_users WHERE admin_uuid = :admin_uuid";
+//     $stmt = $connexion->prepare($query);
+//     $stmt->bindParam(':admin_uuid', $_SESSION['admin_uuid']);
+//     $stmt->execute();
+//     return $stmt->fetch(PDO::FETCH_ASSOC);
+// }
 
 
 function generateDriverCode($prefix = "DRV") {

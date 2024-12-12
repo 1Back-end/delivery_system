@@ -84,7 +84,6 @@ function getPackageTypes() {
         'Colis encombrant',
         'Colis réfrigéré ou congelé',
         'Colis de valeur',
-        'Colis international',
         'Colis sécurisé',
         'Colis léger',
         'Colis cadeau'

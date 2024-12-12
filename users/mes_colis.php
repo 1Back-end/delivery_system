@@ -63,6 +63,12 @@ $totalPages = ceil($totalItems / $perPage);
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php if(empty($packages)): ?>
+                    <tr>
+                        <td colspan="10">Aucun colis trouvé</td>
+                    </tr>
+                <?php else: ?>
                     <?php foreach ($packages as $index => $package): ?>
                     <tr>
                         <td><?= ($page - 1) * $perPage + ($index + 1) ?></td>
@@ -113,9 +119,10 @@ $totalPages = ceil($totalItems / $perPage);
                             </ul>
                         </div>
                         </div>
-                            </td>
+                    </td>
                     </tr>
                     <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>

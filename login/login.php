@@ -30,9 +30,9 @@
 
 <div class="container mt-5 pb-5 p-2">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12 mb-3">
-            
-    <?php include_once("process_login_users.php"); ?>
+        
+        <div class="col-md-8 col-sm-12">
+        <?php include_once("process_login_users.php"); ?>
         <!-- Message d'erreur -->
         <?php if (!empty($erreur)): ?>
             <div class="alert alert-danger text-center">
@@ -46,9 +46,6 @@
                 <?= htmlspecialchars($success); ?>
             </div>
         <?php endif; ?> 
-    </div>
-
-        <div class="col-md-8 col-sm-12">
             <div class="card-box p-3 mt-3 shadow-none bg-white">
                 <div class="row align-items-center">
                     <!-- Image Section -->
@@ -104,6 +101,10 @@
                     
                 </div>
             </div>
+            <p class="mt-3 text-center font-weight-bold font-14">
+                Designer by Laurent Alphonse &copy; <?= date('Y'); ?> 
+            </p>
+
         </div>
     </div>
 </div>

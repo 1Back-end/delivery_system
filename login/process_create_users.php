@@ -37,7 +37,7 @@ if (isset($_POST["submit"])) {
 
     // Vérification des champs vides
     if (empty($firstname) || empty($lastname) || empty($email) || empty($phone_number) || empty($password)) {
-        $erreur_champ = "Veuillez remplir tous les champs.";
+        $erreur_champ = "Ce champ est requis !";
     } elseif (!preg_match('/^\d{9}$/', $phone_number)) { // Vérifie que le numéro est exactement 9 chiffres
         $erreur = "Le numéro de téléphone doit contenir exactement 9 chiffres.";
     } else {

@@ -92,10 +92,10 @@ $totalPages = ceil($totalPackages / $perPage);
                                 <div class="d-flex align-items-center">
                                 <?php if(empty($package['receiver_photo'])) : ?>
                                     <!-- Affichage de l'image par défaut si le récepteur n'a pas de photo -->
-                                    <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt="User" class="rounded-circle mr-2" width="35" height="35">
+                                    <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"  class="rounded-circle mr-2" width="35" height="35">
                                 <?php else: ?>
                                     <!-- Affichage de la photo du récepteur si elle existe -->
-                                    <img src="../uploads/<?= $package['receiver_photo'] ?>" alt="User" class="rounded-circle mr-2" width="35" height="35">
+                                    <img src="../uploads/<?= $package['receiver_photo'] ?>"  class="rounded-circle mr-2" width="35" height="35">
                                 <?php endif; ?>
                                 <!-- Ajout d'un espace entre l'image et le nom -->
                                 <span class="mr-3 text-truncate"><?= $package['receiver_firstname'] . ' ' . $package['receiver_lastname'] ?></span>
@@ -118,7 +118,7 @@ $totalPages = ceil($totalPackages / $perPage);
                                         <span class="badge badge-info text-center text-white disabled">Inconnu</span>
                                     <?php endif; ?>
                                 </td>
-                                <td><?= date('d/m/Y H:i', strtotime($package['created_at'])) ?></td>
+                                <td><?= date('d-m-Y H:i', strtotime($package['created_at'])) ?></td>
 
                                 <td>
                                 <div class="dropdown">

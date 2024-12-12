@@ -7,6 +7,7 @@
        <div class="card-box p-3">
        <div class="d-flex align-items-center justify-content-between">
             <div class="mr-auto">
+                <?php $warehouses = get_total_warehouses($pdo);?>
                 <h6 class="text-uppercase font-14">Liste des entrepôts (<?php echo $warehouses;?>)</h6>
             </div>
             <div class="ml-auto">
@@ -99,7 +100,7 @@ $total_pages = ceil($total_warehouses / $limit);
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-customize text-white btn-rounded dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="fa fa-cogs mr-1"></span>Actions
+                                            <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <li>
@@ -107,11 +108,18 @@ $total_pages = ceil($total_warehouses / $limit);
                                                     <span class="fa fa-info-circle text-info"></span> Détails
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item text-success" href="view_packages.php?uuid=<?= $warehouse['uuid']; ?>">
-                                                    <span class="fa fa-cube text-success"></span> Voir les colis
-                                                </a>
-                                            </li>
+                                            <!-- Si le statut est 'inactive', la liaison pour voir les colis sera désactivée -->
+                                                <li>
+                                                    <?php if ($warehouse["status"] == 'inactive') : ?>
+                                                        <a class="dropdown-item text-muted" href="#" onclick="return false;">
+                                                            <span class="fa fa-cube text-muted"></span> Voir les colis
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <a class="dropdown-item text-success text-white" href="view_packages.php?uuid=<?= $warehouse['uuid']; ?>">
+                                                            <span class="fa fa-cube text-success text-white"></span> Voir les colis
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </li>
                                                 <li>
                                                 <a class="dropdown-item text-danger" href="delete_warehouses.php?uuid=<?= $warehouse['uuid']; ?>">
                                                     <span class="fa fa-trash-o text-danger"></span> Supprimer

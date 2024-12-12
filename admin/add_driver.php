@@ -50,14 +50,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="firstname" class="form-label">Prénom <span class="text-danger">*</span></label>
-                                <input type="text" id="firstname" name="firstname" class="form-control form-control-lg shadow-none">
+                                <input type="text" id="firstname" name="firstname" placeholder="John" class="form-control form-control-lg shadow-none">
                                 <?php if (isset($erreur_champ) && empty($_POST['firstname'])): ?>
                                     <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
                                 <?php endif; ?>
                             </div>
                             <div class="mb-3">
                                 <label for="lastname" class="form-label">Nom <span class="text-danger">*</span></label>
-                                <input type="text" id="lastname" name="lastname" class="form-control form-control-lg shadow-none">
+                                <input type="text" id="lastname" placeholder="Deo" name="lastname" class="form-control form-control-lg shadow-none">
                                 <?php if (isset($erreur_champ) && empty($_POST['lastname'])): ?>
                                     <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
                                 <?php endif; ?>
@@ -68,19 +68,27 @@
                         <div class="col-lg-6 col-sm-12 mb-3">
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Téléphone <span class="text-danger">*</span></label>
-                                <input type="text" id="phone" name="phone" class="form-control form-control-lg shadow-none">
+                                <input type="text" id="phone" name="phone" placeholder="612901720" class="form-control form-control-lg shadow-none">
                                 <?php if (isset($erreur_champ) && empty($_POST['phone'])): ?>
                                     <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
                                 <?php endif; ?>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control form-control-lg shadow-none">
+                                <input type="email" id="email" placeholder="johndeo@gmail.com" name="email" class="form-control form-control-lg shadow-none">
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Photo</label>
-                                <input type="file" id="photo" name="photo" class="form-control form-control-lg shadow-none">
+                                <label for="email" class="form-label">Photo (Au format PNG ou JPEG Optionnel)</label>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <img src="../vendors/images/user.png" alt="" id="avatar" class="rounded-circle mr-2" width="45" height="auto">
+                                    </div>
+                                <div class="ml-3 w-100">
+                                    <input type="file" id="photoInput" name="photo" class="form-control form-control-lg shadow-none" accept="image/*">
+                                </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -96,3 +104,19 @@
         </div>
     </div>
 </div>
+<script>
+    const photoInput = document.getElementById('photoInput');
+    photoInput.addEventListener('change',function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e){
+            const imgElement = document.getElementById('avatar');
+            imgElement.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+            
+        }
+    
+    });
+</script>

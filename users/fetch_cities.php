@@ -12,3 +12,4 @@ if (isset($_GET['region_uuid'])) {
     echo json_encode($cities);
 }
 ?>
+

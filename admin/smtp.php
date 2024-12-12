@@ -7,7 +7,7 @@
 $information_smtp = get_informations_smtp($pdo);
 ?>
 
-<div class="main-container mt-3 pb-3">
+<div class="main-container mt-3 pb-5">
     <div class="col-md-12 col-sm-12 mb-3">
         <div class="card-box p-3">
             <!-- SMTP Settings Header -->
@@ -15,10 +15,10 @@ $information_smtp = get_informations_smtp($pdo);
                 <h6 class="text-uppercase font-14"><?php echo htmlspecialchars($selected_lang['smtp']); ?></h6>
             </div>
             
-            <!-- SMTP Settings Form -->
-            <div class="mb-3">
-                <form action="" method="post">
-                    <!-- Username Input -->
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                         <!-- Username Input -->
                     <div class="mb-3">
                         <label for="username"><?php echo htmlspecialchars($selected_lang['username']); ?>:</label>
                         <input type="text" id="username" name="username" class="form-control shadow-none" value="<?php echo htmlspecialchars($information_smtp['username']); ?>" required>
@@ -36,7 +36,9 @@ $information_smtp = get_informations_smtp($pdo);
                         <input type="text" id="name" name="name" class="form-control shadow-none" value="<?php echo htmlspecialchars($information_smtp['name']); ?>" required>
                     </div>
                     
-                    <!-- Host Input -->
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <!-- Host Input -->
                     <div class="mb-3">
                         <label for="host"><?php echo htmlspecialchars($selected_lang['host']); ?>:</label>
                         <input type="text" id="host" name="host" class="form-control shadow-none" value="<?php echo htmlspecialchars($information_smtp['host']); ?>" required>
@@ -53,12 +55,13 @@ $information_smtp = get_informations_smtp($pdo);
                         <label for="encryption"><?php echo htmlspecialchars($selected_lang['encryption']); ?>:</label>
                         <input type="text" id="encryption" name="encryption" class="form-control shadow-none" value="<?php echo htmlspecialchars($information_smtp['encryption']); ?>" required>
                     </div>
-                    
-                    <!-- Save Button -->
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-customize btn-responsive text-white"><?php echo htmlspecialchars($selected_lang['save_button']); ?></button>
                     </div>
-                </form>
+                </div>
+                <div class="mb-3">
+                        <button type="submit" class="btn btn-customize btn-responsive text-white text-uppercase">Modifier</button>
+                    </div>
+            </form>
+            
             </div>
         </div>
     </div>

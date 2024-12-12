@@ -74,16 +74,29 @@
                                 <label for="driver_uuid">Chauffeur <span class="text-danger">*</span></label>
                                 <select id="driver_uuid" name="driver_uuid" class="form-control form-control-lg shadow-none select-custom">
                                     <option value="" disabled selected>Choisir une option</option>
-                                    <?php foreach ($drivers as $driver): ?>
-                                        <option value="<?= htmlspecialchars($driver['uuid']); ?>">
-                                            <?= htmlspecialchars($driver['firstname'] . ' ' . $driver['lastname']); ?>
-                                        </option>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    // Appel de la fonction pour récupérer les conducteurs
+                                    $drivers = get_drivers_not_deleted($pdo);
+
+                                    // Vérifiez si $drivers est un tableau et qu'il n'est pas vide
+                                    if (is_array($drivers) && !empty($drivers)) {
+                                        foreach ($drivers as $driver) {
+                                            // Affichage des conducteurs dans le menu déroulant
+                                            echo '<option value="' . htmlspecialchars($driver['uuid']) . '">';
+                                            echo htmlspecialchars($driver['firstname'] . ' ' . $driver['lastname']);
+                                            echo '</option>';
+                                        }
+                                    } else {
+                                        // Affichage si aucun conducteur n'est trouvé
+                                        echo '<option value="">Aucun conducteur disponible</option>';
+                                    }
+                                    ?>
                                 </select>
                                 <?php if (isset($erreur_champ) && empty($_POST['driver_uuid'])): ?>
                                     <small class="text-danger"><?= htmlspecialchars($erreur_champ) ?></small>
                                 <?php endif; ?>
                             </div>
+
 
                             <div class="mb-3">
                                 <label for="description">Description <span class="text-danger">*</span></label>

@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
 
     // Vérifier si les champs sont remplis
     if (empty($email) || empty($password)) {
-        $erreur_champ = "Veuillez remplir tous les champs.";
+        $erreur_champ = "Ce champ est requis !";
     } else {
         try {
             // Vérifier si l'utilisateur existe

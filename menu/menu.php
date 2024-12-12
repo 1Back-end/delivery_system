@@ -61,7 +61,7 @@
 				</a>
 
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-					<a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i> Profile</a>
+					<a class="dropdown-item" href="../admin/profile.php"><i class="fa fa-user"></i> Profile</a>
 					<a class="dropdown-item" href="../login/logout.php"><i class="fa fa-sign-out-alt"></i> Log Out</a>
 
 					</div>
